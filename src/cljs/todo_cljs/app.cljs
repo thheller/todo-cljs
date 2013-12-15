@@ -29,7 +29,7 @@
                (fn [this e el]
                  (dom/add-class this "editing")
                  (.focus (dom/query-one "input.edit" this)))]
-  
+
   :watch [:todo
           (fn [this old {:keys [done] :as new}]
             (dom/toggle-class this "completed" done))]
@@ -81,8 +81,12 @@
                    (so/update! this update-in [:todos] conj {:id (todo-next-id)
                                                              :text new-todo
                                                              :done false})
-                   (so/notify-down! this :input/set-values {:new-todo ""})
-                   ))]
+                   (so/notify-down! this :input/set-values {:new-todo ""})))
+
+               [:click "#clear-completed"]
+               (fn [this e]
+                 (dom/ev-stop e)
+                 (so/update! this update-in [:todos] #(vec (remove :done %))))]
   
   :watch [:todos
           (fn [this old new]
