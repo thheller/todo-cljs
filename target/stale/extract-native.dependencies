@@ -1,1 +1,0 @@
-([:dependencies ([org.clojure/clojure "1.5.1"] [thheller/shadow-client "0.1.0"] [org.clojure/tools.nrepl "0.2.3" :exclusions ([org.clojure/clojure])] [clojure-complete/clojure-complete "0.2.3" :exclusions ([org.clojure/clojure])] [org.clojure/clojurescript "0.0-2120" :exclusions ([org.mozilla/rhino])] [thheller/shadow-build "0.1.0"])])
