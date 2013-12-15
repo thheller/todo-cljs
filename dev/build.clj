@@ -39,7 +39,7 @@
              :pretty-print false
              :work-dir (io/file "target/cljs-work")
              :public-dir (io/file "public/assets/cljs")
-             :public-path "/assets/cljs")
+             :public-path "assets/cljs")
       (cljs/step-find-resources-in-jars)
       (cljs/step-find-resources "src/cljs")
       (cljs/step-find-resources "checkouts/shadow/src/cljs")
