@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Template • TodoMVC</title>
+    <link rel="stylesheet" href="assets/css/base.css">
+    <style>
+     /* no need to remove/add the element */
+     #todoapp #clear-completed {
+       display: none;
+     }
+     #todoapp.has-completed #clear-completed {
+       display: block;
+     }
+    </style>
+  </head>
+  <body>
+    <script type="shadow/run" data-ref="self" data-fn="todo_cljs.app.todo_mvc"></script>
+    <footer id="info">
+      <p>Double-click to edit a todo</p>
+      <p>Created by <a href="https://github.com/thheller">Thomas Heller</a></p>
+      <p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+    </footer>
+    <script src="assets/cljs/app.js"></script>
+  </body>
+</html>
