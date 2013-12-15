@@ -12,7 +12,7 @@ Doesn't do everything yet, kinda got bored.
  
 ## Usage
 
-FIXME
+http://thheller.github.io/todo-cljs/
 
 ## License
 
