@@ -1,8 +1,10 @@
 (ns todo-cljs.app
-  (:require-macros [shadow.macros :refer (ns-ready log)])
+  (:require-macros [shadow.macros :refer (ns-ready log)]
+                   [cljs.core.async.macros :refer (go)])
   (:require [shadow.object :as so]
             [shadow.dom :as dom]
-            [shadow.ui :as ui]))
+            [shadow.ui :as ui]
+            [cljs.core.async :as async]))
 
 (def stored-todos (ui/store-locally (atom []) :todos))
 
@@ -97,7 +99,9 @@
               (so/update! this merge {:todos-left (count (get grouped false))
                                       :todos-completed todos-completed})
 
-              (dom/toggle-class this "has-completed" (pos? todos-completed))))]
+              (dom/toggle-class this "has-completed" (pos? todos-completed))))
+
+          ]
 
   :on [:input/change
        (fn [this a v i]
@@ -105,11 +109,13 @@
 
        :bind/update
        (fn [this a v]
-         (so/update! this assoc-in a v))])
+         (so/update! this assoc-in a v))
+       ])
 
 (defn ^:export todo-mvc [container]
   (log "todo-mvc starting")
   (let [app (so/create ::app {})]
+
     (dom/replace-node container app)
     (so/update! app assoc :todos @stored-todos)))
 

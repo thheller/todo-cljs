@@ -8,7 +8,7 @@
 
 
   :profiles {:dev {:source-paths ["dev"]
-                   :dependencies [[org.clojure/clojurescript "0.0-2120" :exclusions [org.mozilla/rhino]]
+                   :dependencies [[org.clojure/clojurescript "0.0-2127" :exclusions [org.mozilla/rhino]]
                                   [thheller/shadow-build "0.1.0"]]}}
 
   :source-paths ["src/clj" "src/cljs"]
